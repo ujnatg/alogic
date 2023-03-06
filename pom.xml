@@ -1,0 +1,119 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.asianlogic</groupId>
+	<artifactId>epochtime.auto</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>epochtime.auto</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<lombok.version>1.18.26</lombok.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jsr.version>2.9.9</jsr.version>
+		<surefire.suiteXmlFiles>${suiteFile}</surefire.suiteXmlFiles>
+		<allure.results>${project.build.directory}/allure-results</allure.results>
+		<allure.html.folder.name>graph-test-report</allure.html.folder.name>
+<!--		<allure-maven.version>2.10.0</allure-maven.version>-->
+		<allure.version>2.21.0</allure.version>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.21.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>io.qameta.allure</groupId>
+				<artifactId>allure-rest-assured</artifactId>
+				<version>${allure.version}</version>
+				<configuration>
+					<resultsDirectory>${allure.results}</resultsDirectory>
+					<reportVersion>${allure.version}</reportVersion>
+					<reportDirectory>${project.build.directory}/${allure.html.folder.name}</reportDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+    <repository>
+      <id>Central Maven repository</id>
+      <name>Central Maven repository https</name>
+      <url>https://repo.maven.apache.org/maven2</url>
+    </repository>
+	</repositories>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>5.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+			<version>${jsr.version}</version>
+		</dependency>
+    <dependency>
+      <groupId>org.joda</groupId>
+      <artifactId>joda-money</artifactId>
+      <version>1.0.1</version>
+    </dependency>
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-testng</artifactId>
+			<version>${allure.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-rest-assured -->
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-rest-assured</artifactId>
+			<version>${allure.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.17.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+			<version>1.21</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.aeonbits.owner/owner-java8 -->
+		<dependency>
+			<groupId>org.aeonbits.owner</groupId>
+			<artifactId>owner-java8</artifactId>
+			<version>1.0.12</version>
+		</dependency>
+
+	</dependencies>
+</project>
