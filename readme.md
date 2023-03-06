@@ -28,6 +28,24 @@ behavior is expected for corner cases.
 For black-box used class equivalents and boundary values technic. Taken in 
 account midnight and noon behavior, leap year, quantity of days in specific months.
 
+## Improvement
+According to the REST concepts, API endpoint should be rewritten in next way:
+https://helloacm.com/api/unix-timestamp-converter/cached/epoch/1451613802
+https://helloacm.com/api/unix-timestamp-converter/epoch/1451613802
+https://helloacm.com/api/unix-timestamp-converter/cached/date/2016-01-01%202:3:22
+https://helloacm.com/api/unix-timestamp-converter/2016-01-01%202:3:22
+this approach will properly route requests to appropriate handler, and problems, caused by
+is_numeric. 
+
+backend ignoring expected content type header, json is not supported
+
+returned value in the plain text wrapped into double quotes, when epoch sent, 
+when date used, returned value is not wrapped into double quotes. 
+n plain text mode, value should be returned as plain text, without wrapping.
+
+cached parameter should be moved into header, since headers are used to control cache
+
+
 
 ## External dependencies
 
